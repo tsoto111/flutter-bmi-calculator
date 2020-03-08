@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusable_card.dart';
 import 'icon_content.dart';
 import 'constants.dart';
+import 'add_subtract_int.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -14,6 +15,8 @@ enum Gender { male, female }
 class _InputPageState extends State<InputPage> {
   Gender activeGender;
   int height = 180;
+  int weight = 60;
+  int age = 25;
 
   @override
   Widget build(BuildContext context) {
@@ -122,13 +125,35 @@ class _InputPageState extends State<InputPage> {
               child: Row(
                 children: <Widget>[
                   Expanded(
-                    child: ReusableCard(
-                      colour: kActiveCardColor,
+                    child: AddSubtractInt(
+                      label: 'WEIGHT',
+                      intData: weight,
+                      onTapAdd: () {
+                        setState(() {
+                          weight++;
+                        });
+                      },
+                      onTapSubtract: () {
+                        setState(() {
+                          weight--;
+                        });
+                      },
                     ),
                   ),
                   Expanded(
-                    child: ReusableCard(
-                      colour: kActiveCardColor,
+                    child: AddSubtractInt(
+                      label: 'AGE',
+                      intData: age,
+                      onTapAdd: () {
+                        setState(() {
+                          age++;
+                        });
+                      },
+                      onTapSubtract: () {
+                        setState(() {
+                          age--;
+                        });
+                      },
                     ),
                   ),
                 ],
